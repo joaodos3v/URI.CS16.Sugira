@@ -30,4 +30,12 @@ class GenerosController extends Controller {
         }
 	}
 
+	public function update(Request $request) {
+		$genero = Generos::find($request->id_genero);
+		$genero->descricao = $request->descricao;
+		$genero->save();
+		
+		return redirect()->route('generos')->with('sucesso_editar', 'Gênero editado com sucesso!');
+	}
+
 }

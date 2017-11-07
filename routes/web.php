@@ -22,7 +22,10 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para os Perfis de Usuários
 	*/
 	Route::group(['prefix' => 'perfis'], function() {
-		Route::get('', 			['as' => 'perfis', 		'uses' => 'PerfilController@index']);
+		Route::get('', 					['as' => 'perfis', 				'uses' => 'PerfilController@index']);
+		Route::post('store',			['as' => 'perfis.store', 		'uses' => 'PerfilController@store']);
+		Route::put('update', 			['as' => 'perfis.update',		'uses' => 'PerfilController@update']);
+		Route::get('{id}/permissions', 	['as' => 'perfis.permissions',	'uses' => 'PerfilController@permissions']);
 	});
 
 
@@ -38,8 +41,9 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para os Gêneros
 	*/
 	Route::group(['prefix' => 'generos'], function() {
-		Route::get('', 			['as' => 'generos', 		'uses' => 'GenerosController@index']);
-		Route::post('store', 	['as' => 'generos.store',	'uses' => 'GenerosController@store']);
+		Route::get('', 				['as' => 'generos', 		'uses' => 'GenerosController@index']);
+		Route::post('store', 		['as' => 'generos.store',	'uses' => 'GenerosController@store']);
+		Route::put('update', 		['as' => 'generos.update',	'uses' => 'GenerosController@update']);
 	});
 	
 
@@ -47,6 +51,7 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para os AJAX
 	*/
 	Route::get('generos/exclude/{id}',  'GenerosController@exclude');
+	Route::get('perfil/exclude/{id}',   'PerfilController@exclude');
 
 });
 	

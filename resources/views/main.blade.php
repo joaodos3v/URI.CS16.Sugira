@@ -54,7 +54,7 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="{{ (Request::is('*perfis') ? 'active' : '') }}">
+                    <li class="{{ (Request::is('*perfis*') ? 'active' : '') }}">
                         <a href="{{ url('/perfis') }}">
                             <i class="material-icons">group</i>
                             <p>Perfis de Usuário</p>
