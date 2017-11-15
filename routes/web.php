@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function() {
 	*/
 	Route::group(['prefix' => 'prefeituras'], function() {
 		Route::get('', 			['as' => 'prefeituras', 		'uses' => 'PrefeiturasController@index']);
+		Route::get('create',	['as' => 'prefeituras.create', 	'uses' => 'PrefeiturasController@create']);
+		Route::post('store',	['as' => 'prefeituras.store', 	'uses' => 'PrefeiturasController@store']);
 	});
 
 
@@ -60,8 +62,9 @@ Route::group(['middleware' => 'auth'], function() {
 	/*
 	* Rotas para os AJAX
 	*/
-	Route::get('generos/exclude/{id}',  'GenerosController@exclude');
-	Route::get('perfil/exclude/{id}',   'PerfilController@exclude');
+	Route::get('generos/exclude/{id}',  	'GenerosController@exclude');
+	Route::get('perfil/exclude/{id}',   	'PerfilController@exclude');
+	Route::get('prefeituras/exclude/{id}',  'PrefeiturasController@exclude');
 
 });
 	

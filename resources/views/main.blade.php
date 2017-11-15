@@ -10,6 +10,8 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Custom CSS     -->
+    <link href="{{ asset('/css/custom.css') }}" rel="stylesheet" />
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
@@ -30,12 +32,14 @@
     <script src="{{ asset('/js/material-dashboard.js?v=1.2.0') }}" type="text/javascript"></script>
     <!-- SweetAlert JS -->
     <script src="{{ asset('/js/sweetalert.min.js') }}"></script> 
+    <!-- jQuery Mask to Input's -->
+    <script src="{{ asset('/js/jquery.maskedinput-1.1.4.pack.js') }}"></script> 
 </head>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="sidebar" data-color="green" data-image="../assets/img/sidebar-1.jpg">
+        <div class="sidebar" data-color="green" data-image="{{ asset('/imgs/sidebar-3.jpg') }}">
             <!--
                 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
