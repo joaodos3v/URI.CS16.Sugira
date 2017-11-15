@@ -71,7 +71,7 @@
                             <div class="col-md-5">
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} form-success label-floating">
                                     <label class="control-label">E-mail</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" required>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" required disabled="disabled" readonly="readonly">
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">

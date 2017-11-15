@@ -18,9 +18,15 @@ class UsuariosController extends Controller {
         $senha_atual         = $request->senha_atual;
         $novaSenha           = $request->nova_senha;
         $novaSenha_confirm   = $request->novaSenha_confirm;
+        $nome 				 = $request->name;
         $idUser              = Auth::user()->id;
 
         $user = User::find($idUser);
+        if($nome != $user->name) {
+        	$user->name = $nome;
+        	$user->save();
+        }
+
         if(Hash::check($senha_atual, $user->password)) {
             if(strlen($novaSenha) >= 6) {
                 if($novaSenha == $novaSenha_confirm) {
