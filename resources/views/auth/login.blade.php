@@ -58,9 +58,9 @@
                                     Entrar
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Esqueceu sua senha?
-                                </a>
+                                </a> --}}
                             </div>
                         </div>
                     </form>

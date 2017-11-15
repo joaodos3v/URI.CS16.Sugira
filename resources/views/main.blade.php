@@ -99,7 +99,7 @@
                                         <a href=" {{ route('register') }} "> <i class="material-icons">person_add</i> &nbsp; Novo Usuário</a>
                                     </li>
                                     <li>
-                                        <a href="#"> <i class="material-icons">settings</i> &nbsp; Configurações</a>
+                                        <a href=" {{ route('usuarios.edit') }} "> <i class="material-icons">settings</i> &nbsp; Configurações</a>
                                     </li>
                                     <hr>
                                     <li>

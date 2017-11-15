@@ -48,6 +48,16 @@ Route::group(['middleware' => 'auth'], function() {
 	
 
 	/*
+	* Rotas para os Usuários
+	*/
+	Route::group(['prefix' => 'usuarios'], function() {
+		Route::get('edit', 				['as' => 'usuarios.edit', 		'uses' => 'UsuariosController@edit']);
+		Route::post('update',			['as' => 'usuarios.update', 	'uses' => 'UsuariosController@update']);
+		
+	});
+
+
+	/*
 	* Rotas para os AJAX
 	*/
 	Route::get('generos/exclude/{id}',  'GenerosController@exclude');
