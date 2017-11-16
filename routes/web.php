@@ -33,9 +33,11 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para as Prefeituras
 	*/
 	Route::group(['prefix' => 'prefeituras'], function() {
-		Route::get('', 			['as' => 'prefeituras', 		'uses' => 'PrefeiturasController@index']);
-		Route::get('create',	['as' => 'prefeituras.create', 	'uses' => 'PrefeiturasController@create']);
-		Route::post('store',	['as' => 'prefeituras.store', 	'uses' => 'PrefeiturasController@store']);
+		Route::get('', 				['as' => 'prefeituras', 		'uses' => 'PrefeiturasController@index']);
+		Route::get('create',		['as' => 'prefeituras.create', 	'uses' => 'PrefeiturasController@create']);
+		Route::post('store',		['as' => 'prefeituras.store', 	'uses' => 'PrefeiturasController@store']);
+		Route::get('edit/{id}',		['as' => 'prefeituras.edit', 	'uses' => 'PrefeiturasController@edit']);
+		Route::put('update/{id}',	['as' => 'prefeituras.update', 	'uses' => 'PrefeiturasController@update']);
 	});
 
 

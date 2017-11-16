@@ -5,6 +5,8 @@
 	<div class="row">
         @if (session('sucesso'))
             <input type="hidden" name="status" id="status" value="sucesso">
+        @elseif (session('sucesso_edicao'))
+            <input type="hidden" name="status" id="status" value="sucesso_edicao">
         @endif
 
         <script type="text/javascript">
@@ -24,6 +26,8 @@
             var status = $("#status").val();
             if(status == "sucesso") {
                 showNotification('bottom','right', 'success', "Nova Prefeitura criada com sucesso!", 'check_circle') ;
+            } else if(status == "sucesso_edicao") {
+                showNotification('bottom','right', 'success', "Prefeitura editada criada com sucesso!", 'check_circle') ;
             }
 
             // Função para mostrar notificações na tela. Tipos Disponíveis = ['info', 'success', 'warning', 'danger'];
@@ -114,7 +118,7 @@
                                     <td> {{ $pref->cidade }} </td>
                                     <td> {{ $pref->endereco }}, {{ $pref->numero }} </td>
                                     <td>
-                                        <a href="#editar" class="btn btn-sm btn-info btn-round">Editar</a>
+                                        <a href="{{ route('prefeituras.edit', ['id' => $pref->id]) }}" class="btn btn-sm btn-info btn-round">Editar</a>
                                         <a class="btn btn-sm btn-danger btn-round" onClick="confirmDelete('{{ $pref->id }}', '{{ $pref->cidade }}')">Deletar</a>
                                     </td>
                                 </tr>

@@ -41,4 +41,23 @@ class PrefeiturasController extends Controller {
         }
 	}
 
+	public function edit($id) {
+		$prefeitura = Prefeituras::find($id);
+		return view('prefeituras.edit', compact('prefeitura'));
+	}
+
+	public function update(Request $request, $id) {
+		$cidade = Cidades::find($request->cidade);
+
+		$pref = Prefeituras::find($id);
+		$pref->cnpj 		= $request->cnpj;
+		$pref->cidade 		= $cidade->nome;
+		$pref->endereco 	= $request->endereco;
+		$pref->numero 		= $request->numero;
+		$pref->cidade_id 	= $request->cidade;
+		$pref->save();
+
+		return redirect()->route('prefeituras')->with('sucesso_edicao', 'Prefeitura editada com sucesso!');
+	}
+
 }
