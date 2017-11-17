@@ -13,12 +13,14 @@
     <!-- Custom CSS     -->
     <link href="{{ asset('/css/custom.css') }}" rel="stylesheet" />
     <!-- Bootstrap core CSS     -->
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
     <link href="{{ asset('/css/material-dashboard.css') }}" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('/css/fonts_Roboto.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <!-- Bootstrap Toggle CSS     -->
+    <link href="{{ asset('/css/bootstrap-toggle_2.2.2.min.css') }}" rel="stylesheet" />
 
     <!--   Core JS Files   -->
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
@@ -34,6 +36,8 @@
     <script src="{{ asset('/js/sweetalert.min.js') }}"></script> 
     <!-- jQuery Mask to Input's -->
     <script src="{{ asset('/js/jquery.maskedinput-1.1.4.pack.js') }}"></script> 
+    <!-- Bootstrap Toggle JS -->
+    <script src="{{ asset('/js/bootstrap-toggle_2.2.2.min.js') }}"></script> 
 </head>
 </head>
 
@@ -120,7 +124,7 @@
                 </div>
             </nav>
 
-            <div class="content" style="overflow: hidden;">
+            <div class="content" style="overflow: hidden; margin-top: 0px!important; ">
                 <div class="container-fluid">
                     
                     @yield('content')
