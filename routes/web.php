@@ -22,10 +22,11 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para os Perfis de Usuários
 	*/
 	Route::group(['prefix' => 'perfis'], function() {
-		Route::get('', 					['as' => 'perfis', 				'uses' => 'PerfilController@index']);
-		Route::post('store',			['as' => 'perfis.store', 		'uses' => 'PerfilController@store']);
-		Route::put('update', 			['as' => 'perfis.update',		'uses' => 'PerfilController@update']);
-		Route::get('{id}/permissions', 	['as' => 'perfis.permissions',	'uses' => 'PerfilController@permissions']);
+		Route::get('', 						['as' => 'perfis', 						'uses' => 'PerfilController@index']);
+		Route::post('store',				['as' => 'perfis.store', 				'uses' => 'PerfilController@store']);
+		Route::put('update', 				['as' => 'perfis.update',				'uses' => 'PerfilController@update']);
+		Route::get('{id}/permissions', 		['as' => 'perfis.permissions',			'uses' => 'PerfilController@permissions']);
+		Route::put('store/permissions',		['as' => 'perfis.store.permissions', 	'uses' => 'PerfilController@storePermissions']);
 	});
 
 

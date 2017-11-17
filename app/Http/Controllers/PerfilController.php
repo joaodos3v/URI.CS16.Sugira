@@ -43,4 +43,8 @@ class PerfilController extends Controller {
 		return view('perfis.permissions', compact('perfil'));
 	}
 
+	public function storePermissions(Request $request) {
+		dd($request->all());
+	}
+
 }

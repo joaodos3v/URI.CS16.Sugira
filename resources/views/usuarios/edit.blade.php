@@ -108,10 +108,9 @@
                                     <input type="password" class="form-control" id="novaSenha_confirm" name="novaSenha_confirm" required>
                                 </div>
                             </div>
-                            <duv class="col-md-4 col-md-offset-1">
-                                <button type="submit" class="btn btn-success pull-right">Alterar Usuário</button>
-                            </duv>
                         </div>
+                        
+                        <button type="submit" class="btn btn-success pull-right">Alterar Usuário</button>
                         <div class="clearfix"></div>
 
                     </form>
