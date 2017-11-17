@@ -15,8 +15,14 @@ class PerfilController extends Controller {
 	}
 
 	public function store(Request $request) {
-		$novoPerfil = $request->all();
-		Perfil::create($novoPerfil);
+		$novoPerfil = new Perfil();
+		$novoPerfil->descricao 			= $request->descricao;
+		$novoPerfil->menu_dashboard		= false; 			
+		$novoPerfil->menu_usuarios		= false; 			
+		$novoPerfil->menu_perfis		= false; 			
+		$novoPerfil->menu_prefeituras	= false; 			
+		$novoPerfil->menu_generos		= false; 			
+		$novoPerfil->save();
 
 		return redirect()->route('perfis')->with('sucesso_inserir', 'Perfil inserido com sucesso!');
 	}
@@ -43,8 +49,22 @@ class PerfilController extends Controller {
 		return view('perfis.permissions', compact('perfil'));
 	}
 
-	public function storePermissions(Request $request) {
-		dd($request->all());
+	public function storePermissions(Request $request, $id) {
+		$menu_dashboard 	= (array_key_exists('toggle_dashboard', $request->all())) ? true : false;
+		$menu_usuarios 		= (array_key_exists('toggle_usuarios', $request->all())) ? true : false;
+		$menu_perfis 		= (array_key_exists('toggle_perfis', $request->all())) ? true : false;
+		$menu_prefeituras 	= (array_key_exists('toggle_prefeituras', $request->all())) ? true : false;
+		$menu_generos 		= (array_key_exists('toggle_generos', $request->all())) ? true : false;
+
+		$perfil = Perfil::find($id);
+		$perfil->menu_dashboard		= $menu_dashboard;
+		$perfil->menu_usuarios		= $menu_usuarios;
+		$perfil->menu_perfis		= $menu_perfis;
+		$perfil->menu_prefeituras	= $menu_prefeituras;
+		$perfil->menu_generos		= $menu_generos;
+		$perfil->save();
+
+		return redirect()->route('perfis')->with('sucesso_permissoes', 'Permissões atualizadas com sucesso!');
 	}
 
 }

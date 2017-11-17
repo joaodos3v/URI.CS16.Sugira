@@ -7,6 +7,8 @@
             <input type="hidden" name="status" id="status" value="Sucesso_Inserir">
         @elseif (session('sucesso_editar'))
             <input type="hidden" name="status" id="status" value="Sucesso_Editar">
+        @elseif (session('sucesso_permissoes'))
+            <input type="hidden" name="status" id="status" value="Sucesso_Permissoes">
         @endif
 
         <script type="text/javascript">
@@ -28,6 +30,8 @@
                 showNotification('bottom','right', 'success', "Perfil criado com sucesso!", 'check_circle') ;
             } else if(status == "Sucesso_Editar") {
                 showNotification('bottom','right', 'success', "Perfil editado com sucesso!", 'check_circle') ;
+            } else if(status == "Sucesso_Permissoes") {
+                showNotification('bottom','right', 'success', "Permissões atualizadas com sucesso!", 'check_circle') ;
             }
 
             // Função para mostrar notificações na tela. Tipos Disponíveis = ['info', 'success', 'warning', 'danger'];

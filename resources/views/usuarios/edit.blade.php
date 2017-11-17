@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="card">
                 <div class="card-header" data-background-color="green">
-                    <h4 class="title">Alterar Usuário  -  <b>{{ Auth::user()->name }}</b></h4>
+                    <h4 class="title">Alterar Senha -  <b>{{ Auth::user()->name }}</b></h4>
                     <p class="category">Preencha todos os campos</p>
                 </div>
 
@@ -57,32 +57,6 @@
 
                         <div class="row">
                             <div class="col-md-5 col-md-offset-1">
-                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} form-success label-floating">
-                                    <label class="control-label">Nome</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" required autofocus>
-
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} form-success label-floating">
-                                    <label class="control-label">E-mail</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" required disabled="disabled" readonly="readonly">
-
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
                                 <div class="form-group form-success label-floating">
                                     <label class="control-label">Senha Atual</label>
                                     <input type="password" class="form-control" id="senha_atual" name="senha_atual" required>
@@ -101,7 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="row">
+                        <div class="row">
                             <div class="col-md-5 col-md-offset-1">
                                 <div class="form-group form-success label-floating">
                                     <label class="control-label">Confirmação de Nova Senha</label>

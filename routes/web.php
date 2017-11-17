@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('store',				['as' => 'perfis.store', 				'uses' => 'PerfilController@store']);
 		Route::put('update', 				['as' => 'perfis.update',				'uses' => 'PerfilController@update']);
 		Route::get('{id}/permissions', 		['as' => 'perfis.permissions',			'uses' => 'PerfilController@permissions']);
-		Route::put('store/permissions',		['as' => 'perfis.store.permissions', 	'uses' => 'PerfilController@storePermissions']);
+		Route::put('store/permissions/{id}',['as' => 'perfis.store.permissions', 	'uses' => 'PerfilController@storePermissions']);
 	});
 
 
@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para os Usuários
 	*/
 	Route::group(['prefix' => 'usuarios'], function() {
+		Route::get('', 					['as' => 'usuarios', 			'uses' => 'UsuariosController@index']);
 		Route::get('edit', 				['as' => 'usuarios.edit', 		'uses' => 'UsuariosController@edit']);
 		Route::post('update',			['as' => 'usuarios.update', 	'uses' => 'UsuariosController@update']);
 		

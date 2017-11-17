@@ -62,6 +62,12 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    <li class="{{ (Request::is('*usuarios*') ? 'active' : '') }}">
+                        <a href="{{ url('/usuarios') }}">
+                            <i class="material-icons">person</i>
+                            <p>Usuários</p>
+                        </a>
+                    </li>
                     <li class="{{ (Request::is('*perfis*') ? 'active' : '') }}">
                         <a href="{{ url('/perfis') }}">
                             <i class="material-icons">group</i>
@@ -107,7 +113,7 @@
                                         <a href=" {{ route('register') }} "> <i class="material-icons">person_add</i> &nbsp; Novo Usuário</a>
                                     </li>
                                     <li>
-                                        <a href=" {{ route('usuarios.edit') }} "> <i class="material-icons">settings</i> &nbsp; Configurações</a>
+                                        <a href=" {{ route('usuarios.edit') }} "> <i class="material-icons">vpn_key</i> &nbsp; Alterar Senha</a>
                                     </li>
                                     <hr>
                                     <li>

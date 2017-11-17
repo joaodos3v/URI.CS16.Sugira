@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 class UsuariosController extends Controller {
     
+    public function index() {
+        $usuarios = DB::table('users')->orderBy('id', 'asc')->get();
+        return view('usuarios.index', compact('usuarios'));
+    }
+
 	public function edit() {
 		return view('usuarios.edit');
 	}
@@ -18,14 +24,9 @@ class UsuariosController extends Controller {
         $senha_atual         = $request->senha_atual;
         $novaSenha           = $request->nova_senha;
         $novaSenha_confirm   = $request->novaSenha_confirm;
-        $nome 				 = $request->name;
         $idUser              = Auth::user()->id;
+        $user                = User::find($idUser);
 
-        $user = User::find($idUser);
-        if($nome != $user->name) {
-        	$user->name = $nome;
-        	$user->save();
-        }
 
         if(Hash::check($senha_atual, $user->password)) {
             if(strlen($novaSenha) >= 6) {
