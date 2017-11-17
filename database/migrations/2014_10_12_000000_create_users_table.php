@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('perfil', 50);
             $table->integer('perfil_id')->unsigned();
             $table->foreign('perfil_id')->references('id')->on('perfils');
+            $table->integer('prefeitura_id')->nullable(); // Infelizmente, servirá como FK, mas administradores não estão vinculados à prefeitura nenhuma, então pode ser nulo.
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

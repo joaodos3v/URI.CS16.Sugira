@@ -56,9 +56,10 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para os Usuários
 	*/
 	Route::group(['prefix' => 'usuarios'], function() {
-		Route::get('', 					['as' => 'usuarios', 			'uses' => 'UsuariosController@index']);
-		Route::get('edit', 				['as' => 'usuarios.edit', 		'uses' => 'UsuariosController@edit']);
-		Route::post('update',			['as' => 'usuarios.update', 	'uses' => 'UsuariosController@update']);
+		Route::get('', 					['as' => 'usuarios', 				'uses' => 'UsuariosController@index']);
+		Route::get('edit', 				['as' => 'usuarios.edit', 			'uses' => 'UsuariosController@edit']);
+		Route::post('update',			['as' => 'usuarios.update', 		'uses' => 'UsuariosController@update']);
+		Route::get('edit/private', 		['as' => 'usuarios.edit.private', 	'uses' => 'UsuariosController@editPrivate']);
 		
 	});
 
@@ -69,6 +70,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('generos/exclude/{id}',  	'GenerosController@exclude');
 	Route::get('perfil/exclude/{id}',   	'PerfilController@exclude');
 	Route::get('prefeituras/exclude/{id}',  'PrefeiturasController@exclude');
+	Route::get('user/exclude/{id}',  		'UsuariosController@exclude');
 
 });
 	

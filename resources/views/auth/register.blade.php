@@ -3,6 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <script type="text/javascript">
+            $(function(){
+                if($("#select_perfis").val() == 1)
+                    $("#div_cidade").hide();
+
+                // Sempre que ocorre uma mudança no select de perfis, verifica se é administrador ou não
+                $(document).on('change', '#select_perfis', function(e) {
+                    if($("#select_perfis").val() == 1)
+                        $("#div_cidade").hide();
+                    else 
+                        $("#div_cidade").show();
+                });
+
+            });
+        </script>
+
+
         <div class="col-md-8 col-md-offset-1">
             <div class="card">
                 <div class="card-header" data-background-color="green">
@@ -63,14 +80,14 @@
                             <div class="col-md-5 col-md-offset-1">
                                 <div class="form-group form-success label-floating">
                                     {!! Form::label('perfil', 'Perfil', ['class' => 'control-label']) !!}
-                                    {!! Form::select('perfil', \App\Perfil::orderBy('descricao')->pluck('descricao', 'id')->toArray(), null, ['class' => 'form-control', 'required' => 'required'])  !!}
+                                    {!! Form::select('perfil', \App\Perfil::orderBy('descricao')->pluck('descricao', 'id')->toArray(), null, ['class' => 'form-control', 'required' => 'required', 'id' => 'select_perfis'])  !!}
                                 </div>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-5" id="div_cidade">
                                 <div class="form-group form-success label-floating">
                                      <div class="form-group form-success label-floating">
-                                        {!! Form::label('cidade', 'Cidade', ['class' => 'control-label']) !!}
-                                        {!! Form::select('cidade', \App\Cidades::orderBy('nome')->pluck('nome', 'id')->toArray(), null, ['class' => 'form-control', 'required' => 'required'])  !!}
+                                        {!! Form::label('cidade_pref', 'Prefeitura', ['class' => 'control-label']) !!}
+                                        {!! Form::select('cidade_pref', \App\Prefeituras::orderBy('cidade')->pluck('cidade', 'id')->toArray(), null, ['class' => 'form-control'])  !!}
                                     </div>
                                 </div>
                             </div>

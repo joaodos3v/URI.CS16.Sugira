@@ -47,4 +47,14 @@ class UsuariosController extends Controller {
         return redirect()->route('usuarios.edit')->with($status, 'status');
 	}
 
+    public function editPrivate(Request $request) {
+        $user = User::find($request->id);
+        return view('usuarios.edit_private', compact('user'));   
+    }
+
+    public function exclude(Request $request) {
+        User::find($request->id)->delete();
+        return response()->json(['response' => 'Sucesso_Excluir']);
+    }
+
 }

@@ -15,11 +15,12 @@ class UsersTableSeeder extends Seeder
     	$perfil = Perfil::find(1);
 
         $admin = new User();
-        $admin->name 		= 'Sugira Admin';
-        $admin->email 		= 'joaovitorvv@gmail.com';
-        $admin->perfil 		= $perfil->descricao;
-        $admin->perfil_id 	= $perfil->id;
-        $admin->password 	= bcrypt('123456');
+        $admin->name 		  = 'Sugira Admin';
+        $admin->email 		  = 'joaovitorvv@gmail.com';
+        $admin->perfil 		  = $perfil->descricao;
+        $admin->perfil_id     = $perfil->id;
+        $admin->prefeitura_id = null;
+        $admin->password 	  = bcrypt('123456');
         $admin->save();
     }
 }

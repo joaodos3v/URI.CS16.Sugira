@@ -3,6 +3,77 @@
 
 @section('content')
 	<div class="container">
+
+		<script type="text/javascript">
+			// Para mostrar mensagens após atualizar a página
+            var response = window.localStorage.getItem('response');
+            if(response) {
+                if(response == 'Sucesso_Excluir') {
+                    localStorage.removeItem('response');
+                    showNotification('bottom','right', 'success', "Usuário deletado com sucesso!", 'check_circle') ;
+                }
+            }
+
+            // Função para mostrar notificações na tela. Tipos Disponíveis = ['info', 'success', 'warning', 'danger'];
+            function showNotification(from, align, type, message, icon) {
+                $.notify(
+                {
+                    icon: icon,
+                    message: message
+                }, {
+                    type: type,
+                    timer: 2500,
+                    placement: {
+                        from: from,
+                        align: align
+                    }
+                });
+            }
+
+			// Função que irá abrir S.A. para confirmar se deseja, realmente, deletar gênero
+            function confirmDelete(id_user, nome){
+                $.ajaxSetup({
+                    headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+                });
+
+                swal({
+                  title: "Tem certeza?",
+                  text: "O usuário "+ nome +" será deletado!",
+                  icon: "warning",
+                  buttons:{
+                    cancel: {
+                        text: "Cancelar",
+                        value: null,
+                        visible: true,
+                        className: "",
+                        closeModal: true,
+                      },
+                      confirm: {
+                        text: "Deletar",
+                        value: true,
+                        visible: true,
+                        className: "",
+                        closeModal: true
+                      }
+                  },
+                }).then((confirm) => {
+                  if (confirm) {
+                    $.ajax({
+                        type: 'GET',
+                        url: "{{ url("user/exclude/") }}/"+id_user,
+                        dataType: 'JSON',
+                        success: function (data) {
+                            window.localStorage.setItem('response', data.response)
+                            location.reload();
+                        }, error: function (err){
+                            console.log(err.responseText);
+                        }
+                    });
+                  }
+                });
+            }
+		</script>
+
 		<div class="row">
 	        <div class="col-md-8 col-md-offset-1">
 	            <div class="card">
@@ -25,9 +96,8 @@
 			                            <td> {{ $user->name }} </td>
 			                            <td> {{ $user->perfil }} </td>
 			                            <td>
-			                                {{-- <a href="{{ route('perfis.permissions', ['id' => $p->id]) }}" class="btn btn-sm btn-warning btn-round">Permissões</a>
-			                                <a class="btn btn-sm btn-info btn-round" onClick="editaPerfil('{{ $p->id }}', '{{ $p->descricao }}')">Editar</a>
-			                                <a class="btn btn-sm btn-danger btn-round" onClick="confirmDelete('{{ $p->id }}', '{{ $p->descricao }}')">Deletar</a> --}}
+			                                <a href="{{ route('usuarios.edit.private', ['id' => $user->id]) }}" class="btn btn-sm btn-info btn-round">Editar</a>
+			                                <a class="btn btn-sm btn-danger btn-round" onClick="confirmDelete('{{$user->id}}', '{{$user->name}}')">Deletar</a>
 			                            </td>
 			                        </tr>
 			                    @endforeach
