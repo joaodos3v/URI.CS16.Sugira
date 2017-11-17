@@ -17,7 +17,7 @@
                             <div class="col-md-5 col-md-offset-1">
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} form-success label-floating">
                                     <label class="control-label">Nome</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
 
                                     @if ($errors->has('name'))
                                         <span class="help-block">
@@ -59,6 +59,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="form-group form-success label-floating">
+                                    {!! Form::label('perfil', 'Perfil', ['class' => 'control-label']) !!}
+                                    {!! Form::select('perfil', \App\Perfil::orderBy('descricao')->pluck('descricao', 'id')->toArray(), null, ['class' => 'form-control', 'required' => 'required'])  !!}
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group form-success label-floating">
+                                     <div class="form-group form-success label-floating">
+                                        {!! Form::label('cidade', 'Cidade', ['class' => 'control-label']) !!}
+                                        {!! Form::select('cidade', \App\Cidades::orderBy('nome')->pluck('nome', 'id')->toArray(), null, ['class' => 'form-control', 'required' => 'required'])  !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-success pull-right">Criar Usuário</button>
                         <div class="clearfix"></div>
 

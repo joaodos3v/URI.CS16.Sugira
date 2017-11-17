@@ -37,7 +37,6 @@
                                 <div class="form-group{{ $errors->has('cidade') ? ' has-error' : '' }} form-success label-floating">
                                     {!! Form::label('cidade', 'Cidade', ['class' => 'control-label']) !!}
                                     {!! Form::select('cidade', \App\Cidades::orderBy('nome')->pluck('nome', 'id')->toArray(), null, ['class' => 'form-control'])  !!}
-                                    {{-- \App\Habito::orderBy('nome')->pluck('nome', 'id')->toArray() --}}
                                 </div>
                             </div>
                         </div>
