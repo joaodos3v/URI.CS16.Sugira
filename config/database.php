@@ -54,17 +54,32 @@ return [
             'engine' => null,
         ],
 
+        // LOCAL
         'pgsql' => [
             'driver' => 'pgsql',
-            'host'     => parse_url(getenv("DATABASE_URL"))["host"],
-    'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
-    'username' => parse_url(getenv("DATABASE_URL"))["user"],
-    'password' => parse_url(getenv("DATABASE_URL"))["pass"],
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'sugira'),
+            'username' => env('DB_USERNAME', 'postgres'),
+            'password' => env('DB_PASSWORD', '123456'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+
+        // HEROKU
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'host'     => parse_url(getenv("DATABASE_URL"))["host"],
+        //     'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
+        //     'username' => parse_url(getenv("DATABASE_URL"))["user"],
+        //     'password' => parse_url(getenv("DATABASE_URL"))["pass"],
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
