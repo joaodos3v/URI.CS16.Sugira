@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('/app-api/get/generos', 'ApiController@getGeneros');
+
+
 Route::group(['middleware' => 'auth'], function() {
 	
 	Route::get('/', function () {
