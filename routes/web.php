@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', function () {
+    return view('dashboard');
+});
+
 Route::group(['middleware' => 'auth'], function() {
 	
 	Route::get('/', function () {

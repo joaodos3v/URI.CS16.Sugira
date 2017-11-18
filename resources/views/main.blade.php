@@ -56,36 +56,42 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="{{ (Request::is('/') ? 'active' : '') }}">
-                        <a href="{{ url('/') }}">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="{{ (Request::is('*usuarios*') ? 'active' : '') }}">
-                        <a href="{{ url('/usuarios') }}">
-                            <i class="material-icons">person</i>
-                            <p>Usuários</p>
-                        </a>
-                    </li>
-                    <li class="{{ (Request::is('*perfis*') ? 'active' : '') }}">
-                        <a href="{{ url('/perfis') }}">
-                            <i class="material-icons">group</i>
-                            <p>Perfis de Usuário</p>
-                        </a>
-                    </li>
-                    <li class="{{ (Request::is('*prefeituras') ? 'active' : '') }}">
-                        <a href="{{ url('/prefeituras') }}">
-                            <i class="material-icons">location_city</i>
-                            <p>Prefeituras</p>
-                        </a>
-                    </li>
-                    <li class="{{ (Request::is('*generos') ? 'active' : '') }}">
-                        <a href="{{ url('/generos') }}">
-                            <i class="material-icons">remove_red_eye</i>
-                            <p>Gêneros</p>
-                        </a>
-                    </li>
+                    @if (!Auth::guest())
+                        @if (Auth::user()->perfil_id != 1)
+                            <li class="{{ (Request::is('/') ? 'active' : '') }}">
+                                <a href="{{ url('/') }}">
+                                    <i class="material-icons">dashboard</i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+                        @endif
+                        @if (Auth::user()->perfil_id == 1)
+                            <li class="{{ (Request::is('*usuarios*') ? 'active' : '') }}">
+                                <a href="{{ url('/usuarios') }}">
+                                    <i class="material-icons">person</i>
+                                    <p>Usuários</p>
+                                </a>
+                            </li>
+                            <li class="{{ (Request::is('*perfis*') ? 'active' : '') }}">
+                                <a href="{{ url('/perfis') }}">
+                                    <i class="material-icons">group</i>
+                                    <p>Perfis de Usuário</p>
+                                </a>
+                            </li>
+                            <li class="{{ (Request::is('*prefeituras') ? 'active' : '') }}">
+                                <a href="{{ url('/prefeituras') }}">
+                                    <i class="material-icons">location_city</i>
+                                    <p>Prefeituras</p>
+                                </a>
+                            </li>
+                            <li class="{{ (Request::is('*generos') ? 'active' : '') }}">
+                                <a href="{{ url('/generos') }}">
+                                    <i class="material-icons">remove_red_eye</i>
+                                    <p>Gêneros</p>
+                                </a>
+                            </li>
+                        @endif
+                    @endif
                 </ul>
             </div>
         </div>
@@ -109,9 +115,11 @@
                                     <i class="material-icons">arrow_drop_down</i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href=" {{ route('register') }} "> <i class="material-icons">person_add</i> &nbsp; Novo Usuário</a>
-                                    </li>
+                                    @if (Auth::user()->perfil_id == 1)
+                                        <li>
+                                            <a href=" {{ route('register') }} "> <i class="material-icons">person_add</i> &nbsp; Novo Usuário</a>
+                                        </li>
+                                    @endif
                                     <li>
                                         <a href=" {{ route('usuarios.edit') }} "> <i class="material-icons">vpn_key</i> &nbsp; Alterar Senha</a>
                                     </li>
