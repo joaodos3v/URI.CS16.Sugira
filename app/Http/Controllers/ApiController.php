@@ -9,6 +9,7 @@ class ApiController extends Controller {
     
 	public function getGeneros() {
 		$g = Generos::all();
+		return response()->json( $g );
 	}
 
 }
