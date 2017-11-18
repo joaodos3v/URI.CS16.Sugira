@@ -56,11 +56,10 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'sugira'),
-            'username' => env('DB_USERNAME', 'postgres'),
-            'password' => env('DB_PASSWORD', '123456'),
+            'host'     => parse_url(getenv("DATABASE_URL"))["host"],
+    'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
+    'username' => parse_url(getenv("DATABASE_URL"))["user"],
+    'password' => parse_url(getenv("DATABASE_URL"))["pass"],
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
