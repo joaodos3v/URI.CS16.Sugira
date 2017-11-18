@@ -56,11 +56,11 @@ Route::group(['middleware' => 'auth'], function() {
 	* Rotas para os Usuários
 	*/
 	Route::group(['prefix' => 'usuarios'], function() {
-		Route::get('', 					['as' => 'usuarios', 				'uses' => 'UsuariosController@index']);
-		Route::get('edit', 				['as' => 'usuarios.edit', 			'uses' => 'UsuariosController@edit']);
-		Route::post('update',			['as' => 'usuarios.update', 		'uses' => 'UsuariosController@update']);
-		Route::get('edit/private', 		['as' => 'usuarios.edit.private', 	'uses' => 'UsuariosController@editPrivate']);
-		
+		Route::get('', 						['as' => 'usuarios', 				'uses' => 'UsuariosController@index']);
+		Route::get('edit', 					['as' => 'usuarios.edit', 			'uses' => 'UsuariosController@edit']);
+		Route::post('update',				['as' => 'usuarios.update', 		'uses' => 'UsuariosController@update']);
+		Route::get('edit/private', 			['as' => 'usuarios.edit.private', 	'uses' => 'UsuariosController@editPrivate']);
+		Route::put('update/private/{id}', 	['as' => 'usuarios.update.private', 'uses' => 'UsuariosController@updatePrivate']);
 	});
 
 

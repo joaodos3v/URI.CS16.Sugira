@@ -3,6 +3,9 @@
 
 @section('content')
 	<div class="container">
+        @if (session('Sucesso_Edicao_Privada'))
+            <input type="hidden" name="status" id="status" value="Sucesso_Edicao_Privada">
+        @endif
 
 		<script type="text/javascript">
 			// Para mostrar mensagens após atualizar a página
@@ -12,6 +15,12 @@
                     localStorage.removeItem('response');
                     showNotification('bottom','right', 'success', "Usuário deletado com sucesso!", 'check_circle') ;
                 }
+            }
+
+            // Para mostrar mensagens quando a rota foi chamada, com parâmetros
+            var status = $("#status").val();
+            if(status == "Sucesso_Edicao_Privada") {
+                showNotification('bottom','right', 'success', "Usuário editado com sucesso!", 'check_circle') ;
             }
 
             // Função para mostrar notificações na tela. Tipos Disponíveis = ['info', 'success', 'warning', 'danger'];
@@ -63,7 +72,7 @@
                         url: "{{ url("user/exclude/") }}/"+id_user,
                         dataType: 'JSON',
                         success: function (data) {
-                            window.localStorage.setItem('response', data.response)
+                            
                             location.reload();
                         }, error: function (err){
                             console.log(err.responseText);

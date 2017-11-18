@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Perfil;
 
 class UsuariosController extends Controller {
     
@@ -55,6 +56,20 @@ class UsuariosController extends Controller {
     public function exclude(Request $request) {
         User::find($request->id)->delete();
         return response()->json(['response' => 'Sucesso_Excluir']);
+    }
+
+    public function updatePrivate(Request $request, $id) {
+        $perfil  = Perfil::find($request->perfil);
+        $pref_id = ($request->perfil == 1) ? null : $request->cidade_pref;
+        
+        $user                = User::find($id);
+        $user->name          = $request->name;
+        $user->perfil        = $perfil->descricao;
+        $user->perfil_id     = $request->perfil;
+        $user->prefeitura_id = $pref_id;
+        $user->save();
+
+        return redirect()->route('usuarios')->with('Sucesso_Edicao_Privada', 'status');
     }
 
 }

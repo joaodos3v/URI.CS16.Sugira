@@ -27,7 +27,7 @@
             if(status == "sucesso") {
                 showNotification('bottom','right', 'success', "Nova Prefeitura criada com sucesso!", 'check_circle') ;
             } else if(status == "sucesso_edicao") {
-                showNotification('bottom','right', 'success', "Prefeitura editada criada com sucesso!", 'check_circle') ;
+                showNotification('bottom','right', 'success', "Prefeitura editada com sucesso!", 'check_circle') ;
             }
 
             // Função para mostrar notificações na tela. Tipos Disponíveis = ['info', 'success', 'warning', 'danger'];
