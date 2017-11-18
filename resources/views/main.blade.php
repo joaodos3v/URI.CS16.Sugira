@@ -51,7 +51,7 @@
             -->
             <div class="logo">
                 <a href="#" class="simple-text">
-                    Sugira!
+                    Sugira! <h5>{{Auth::user()->name}}</h5>
                 </a>
             </div>
             <div class="sidebar-wrapper">

@@ -79,3 +79,7 @@ Route::group(['middleware' => 'auth'], function() {
 * Outros
 */
 Auth::routes();
+
+Route::get('/home', function () {
+    return view('dashboard');
+});

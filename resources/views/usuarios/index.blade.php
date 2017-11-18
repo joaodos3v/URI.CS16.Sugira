@@ -72,7 +72,7 @@
                         url: "{{ url("user/exclude/") }}/"+id_user,
                         dataType: 'JSON',
                         success: function (data) {
-                            
+                            window.localStorage.setItem('response', data.response)
                             location.reload();
                         }, error: function (err){
                             console.log(err.responseText);
