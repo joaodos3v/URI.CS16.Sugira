@@ -13,8 +13,10 @@ class ApiController extends Controller {
 		return response()->json( $g );
 	}
 
-	public function postLogin(Request $request) {
-		$data = $request->json()->all(); //read json in request
+	public function postLogin() {
+		// $data = $request->json()->all(); //read json in request
+		// return response()->json($data); //send json respond
+		$data = Input::all(); //read json in request
 		return response()->json($data); //send json respond
 	}
 
