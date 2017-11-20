@@ -13,9 +13,12 @@ class ApiController extends Controller {
 		return response()->json( $g );
 	}
 
-	public function postLogin() {
-		$data = Generos::all();
+	public function postLogin(Request $request) {
+		$data = $request->all(); //read json in request
 		return response()->json($data); //send json respond
+
+		// $data = Generos::all();
+		// return response()->json($data); //send json respond
 	}
 
 }
