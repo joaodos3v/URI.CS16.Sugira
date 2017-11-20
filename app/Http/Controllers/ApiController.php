@@ -13,7 +13,7 @@ class ApiController extends Controller {
 	}
 
 	public function postLogin(Request $request) {
-		return response()->json( ['username_teste' => $request->all()] );	
+		return response()->json(  $request->json()->all() );	
 	}
 
 }
