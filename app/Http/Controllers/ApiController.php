@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Generos;
+use Illuminate\Support\Facades\Input;
 
 class ApiController extends Controller {
     
@@ -13,7 +14,8 @@ class ApiController extends Controller {
 	}
 
 	public function postLogin(Request $request) {
-		return response()->json(  ['teste' => 'lalaa'] );	
+		$data = $request->json()->all(); //read json in request
+		return response()->json($data); //send json respond
 	}
 
 }
