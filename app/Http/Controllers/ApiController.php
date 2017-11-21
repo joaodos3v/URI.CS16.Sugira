@@ -37,7 +37,7 @@ class ApiController extends Controller {
     * POST's
     ------------------------
     */
-    public function posttLogin(Request $request) {
+    public function postLogin(Request $request) {
 		$user_app = DB::table('users__apps')->where('email', '=', $request->email)
 											->where('senha', '=', $request->senha)
 											->get();
@@ -48,14 +48,14 @@ class ApiController extends Controller {
 			return response()->json( ['logado' => false] );
 		}
 	}
-    
-	public function postLogin(Request $request) {
-		$novoGenero = $request->all();
-		Generos::create($novoGenero);
 
-		// $data = $request->all(); //read json in request
-		// return response()->json($data); //send json respond
-	}
+	// public function postLogin(Request $request) {
+	// 	$novoGenero = $request->all();
+	// 	Generos::create($novoGenero);
+
+	// 	// $data = $request->all(); //read json in request
+	// 	// return response()->json($data); //send json respond
+	// }
 
 
 }
