@@ -21,7 +21,7 @@ Route::get('/app-api/get/generos', 		'ApiController@getGeneros');
 Route::get('/app-api/get/cidades', 		'ApiController@getCidades');
 Route::post('/app-api/post/login', 		'ApiController@postLogin');
 
-Route::post('/app-api/post/login', 		'ApiController@postLogin');
+// Route::post('/app-api/post/login', 		'ApiController@postLogin');
 
 
 Route::group(['middleware' => 'auth'], function() {
