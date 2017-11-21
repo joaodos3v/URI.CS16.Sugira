@@ -19,6 +19,8 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/app-api/get/generos', 		'ApiController@getGeneros');
 Route::get('/app-api/get/cidades', 		'ApiController@getCidades');
+Route::get('/app-api/get/login', 		'ApiController@getLogin');
+
 Route::post('/app-api/post/login', 		'ApiController@postLogin');
 
 
