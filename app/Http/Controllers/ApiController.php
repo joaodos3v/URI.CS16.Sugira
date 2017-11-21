@@ -16,7 +16,7 @@ class ApiController extends Controller {
 	public function postLogin(Request $request) {
 		$novoGenero = $request->all();
 		Generos::create($novoGenero);
-		
+
 		// $data = $request->all(); //read json in request
 		// return response()->json($data); //send json respond
 	}

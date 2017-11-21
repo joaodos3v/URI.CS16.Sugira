@@ -33,7 +33,7 @@ class LoginController extends Controller
             return redirect()->route('prefeituras');
         }
 
-        return redirect()->route('/');
+        return redirect()->route('dashboard');
     }
 
     /**

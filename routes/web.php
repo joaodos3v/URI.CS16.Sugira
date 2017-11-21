@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
 Route::get('/app-api/get/generos', 		'ApiController@getGeneros');
 Route::post('/app-api/post/login', 		'ApiController@postLogin');
 

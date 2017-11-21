@@ -58,7 +58,7 @@
                 <ul class="nav">
                     @if (!Auth::guest())
                         @if (Auth::user()->perfil_id != 1)
-                            <li class="{{ (Request::is('/') ? 'active' : '') }}">
+                            <li class="{{ (Request::is('*dashboard*') ? 'active' : '') }}">
                                 <a href="{{ url('/') }}">
                                     <i class="material-icons">dashboard</i>
                                     <p>Dashboard</p>
