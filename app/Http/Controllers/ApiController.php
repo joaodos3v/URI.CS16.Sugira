@@ -47,13 +47,11 @@ class ApiController extends Controller {
 											->where('senha', '=', $request->senha)
 											->get();
 
-		return response()->json( ['qtd' => count($user_app) ] );
-
-		// if($user_app != null) {
-		// 	return response()->json( 'logado' => true);
-		// } else {
-		// 	return response()->json( 'logado' => false );
-		// }
+		if(count($user_app) > 0) {
+			return response()->json( 'logado' => true );
+		} else {
+			return response()->json( 'logado' => false );
+		}
 	}
 
 
