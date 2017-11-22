@@ -49,7 +49,7 @@ class ApiController extends Controller {
 			$logado = true;
 		}
 		
-		return response()->json( ['logado' => $logado] );
+		return response()->json( ['logado' => $logado, 'id' => $user_app[0]->id ] );
 	}
 
 
