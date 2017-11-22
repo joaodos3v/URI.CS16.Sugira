@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Generos;
 use App\Cidades;
 use App\Users_App;
+use App\Sugestoes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -31,10 +32,6 @@ class ApiController extends Controller {
 		return response()->json( $cidades );
 	}
 
-
-	public function getSugestoesUser() {
-
-	}
 
 
 	/* 
@@ -70,6 +67,13 @@ class ApiController extends Controller {
 		$novoGenero = $request->all();
 		Generos::create($novoGenero);
 	}
+
+
+	public function postSugestoesUser(Request $request) {
+		$sugestoes = DB::table('sugestoes')->where('cidade_id', '=', $request->id_cidade);
+		return response()->json( ['qtd' => count($sugestoes), 'result' => $sugestoes ] );
+	}
+
 
 
 }
