@@ -49,11 +49,11 @@ class ApiController extends Controller {
 
 		return response()->json( $user_app );
 
-		if($user_app[0] != null) {
-			return response()->json( 'logado' => true);
-		} else {
-			return response()->json( 'logado' => false );
-		}
+		// if($user_app != null) {
+		// 	return response()->json( 'logado' => true);
+		// } else {
+		// 	return response()->json( 'logado' => false );
+		// }
 	}
 
 
