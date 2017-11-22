@@ -40,18 +40,16 @@ class ApiController extends Controller {
     
 
 	public function postLogin(Request $request) {
-		
-
-
+		$logado = false;
 		$user_app = DB::table('users__apps')->where('email', '=', $request->email)
 											->where('senha', '=', $request->senha)
 											->get();
 
 		if(count($user_app) > 0) {
-			return response()->json( 'logado' => true );
-		} else {
-			return response()->json( 'logado' => false );
+			$logado = true;
 		}
+		
+		return response()->json( 'logado' => $logado );
 	}
 
 
