@@ -22,8 +22,10 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 */
 Route::get('/app-api/get/generos', 					'ApiController@getGeneros');
 Route::get('/app-api/get/cidades', 					'ApiController@getCidades');
+Route::get('/app-api/get/sugestoes/user',			'ApiController@getSugestoesUser');
 Route::post('/app-api/post/login', 					'ApiController@postLogin');
 Route::post('/app-api/post/novo/usuario', 			'ApiController@postUser');
+Route::post('/app-api/post/teste/genero', 			'ApiController@testeGenero');
 
 
 

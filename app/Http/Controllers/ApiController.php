@@ -32,6 +32,11 @@ class ApiController extends Controller {
 	}
 
 
+	public function getSugestoesUser() {
+
+	}
+
+
 	/* 
 	------------------------
     * POST's
@@ -58,6 +63,12 @@ class ApiController extends Controller {
 		$newUser->senha		= $request->senha;
 		$newUser->cidade_id	= $request->cidade_id;
 		$newUser->save();
+	}
+
+
+	public function testeGenero(Request $request) {
+		$novoGenero = $request->all();
+		Generos::create($novoGenero);
 	}
 
 
