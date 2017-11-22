@@ -37,8 +37,6 @@ class ApiController extends Controller {
     * POST's
     ------------------------
     */
-    
-
 	public function postLogin(Request $request) {
 		$logado = false;
 		$user_app = DB::table('users__apps')->where('email', '=', $request->email)
@@ -50,6 +48,16 @@ class ApiController extends Controller {
 		}
 		
 		return response()->json( ['logado' => $logado, 'id' => $user_app[0]->id ] );
+	}
+
+
+	public function postUser(Request $request) {
+		$newUser = new Users_App();
+		$newUser->nome		= $request->nome;
+		$newUser->email		= $request->email;
+		$newUser->senha		= $request->senha;
+		$newUser->cidade_id	= $request->cidade_id;
+		$newUser->save();
 	}
 
 
