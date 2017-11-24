@@ -71,7 +71,7 @@ class ApiController extends Controller {
 
 	public function postNovaSugestao(Request $request) {
 		$novaSugestao = new Sugestoes();
-		$novaSugestao->descricao 		= $request->descricao; 
+		// $novaSugestao->descricao 		= $request->descricao; 
 		// $novaSugestao->status 			= $sugestao->status;
 		$novaSugestao->endereco			= $sugestao->endereco;
 		// $novaSugestao->numero			= $sugestao->numero;
