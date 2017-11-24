@@ -41,15 +41,17 @@ class ApiController extends Controller {
     */
 	public function postLogin(Request $request) {
 		$logado = false;
+		$id = 0;
 		$user_app = DB::table('users__apps')->where('email', '=', $request->email)
 											->where('senha', '=', $request->senha)
 											->get();
 
 		if(count($user_app) > 0) {
 			$logado = true;
+			$id 	= $user_app[0]->id;
 		}
 		
-		return response()->json( ['logado' => $logado, 'id' => $user_app[0]->id ] );
+		return response()->json( ['logado' => $logado, 'id' => $id ] );
 	}
 
 
