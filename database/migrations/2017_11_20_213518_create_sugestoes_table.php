@@ -27,7 +27,7 @@ class CreateSugestoesTable extends Migration
             $table->integer('cidade_id')->unsigned();
             $table->foreign('cidade_id')->references('id')->on('cidades');
             $table->integer('user_criador_id')->unsigned();
-            $table->foreign('user_criador_id')->references('id')->on('users');
+            $table->foreign('user_criador_id')->references('id')->on('users__apps');
             $table->timestamps();
         });
     }
