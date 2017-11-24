@@ -27,6 +27,7 @@ Route::post('/app-api/post/login', 					'ApiController@postLogin');
 Route::post('/app-api/post/sugestoes/user',			'ApiController@postSugestoesUser');
 Route::post('/app-api/post/novo/usuario', 			'ApiController@postUser');
 Route::post('/app-api/post/novo/sugestao', 			'ApiController@postNovaSugestao');
+Route::post('/app-api/post/edita/sugestao', 		'ApiController@editaSugestao');
 
 
 

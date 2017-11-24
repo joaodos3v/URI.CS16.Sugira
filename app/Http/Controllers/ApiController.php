@@ -81,9 +81,16 @@ class ApiController extends Controller {
 		$novaSugestao->cidade_id		= $request->cidade_id;
 		$novaSugestao->user_criador_id	= $request->user_criador_id;
 		$novaSugestao->save();
-		
-		// Sugestoes::create($sugestao);
-		return response()->json( ['result' => $novaSugestao] );
+		return response()->json( ['result' => 'sucesso'] );
+	}
+
+
+	public function editaSugestao(Request $request) {
+		$sugestao = Sugestoes::find($request->id_sugestao);
+		$sugestao->status = $request->novo_status;
+		$sugestao->save();
+
+		return response()->json(['result' => 'sucesso']);
 	}
 
 
