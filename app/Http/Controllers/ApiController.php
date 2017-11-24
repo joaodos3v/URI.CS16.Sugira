@@ -73,7 +73,7 @@ class ApiController extends Controller {
 		$novaSugestao = new Sugestoes();
 		$novaSugestao->descricao 		= $request->descricao; 
 		// $novaSugestao->status 			= $sugestao->status;
-		// $novaSugestao->endereco			= $sugestao->endereco;
+		$novaSugestao->endereco			= $sugestao->endereco;
 		// $novaSugestao->numero			= $sugestao->numero;
 		// $novaSugestao->base64			= $sugestao->base64;
 		// $novaSugestao->genero_id		= $sugestao->genero_id;
