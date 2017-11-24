@@ -80,10 +80,10 @@ class ApiController extends Controller {
 		$novaSugestao->classificacao_id	= $request->classificacao_id;
 		$novaSugestao->cidade_id		= $request->cidade_id;
 		$novaSugestao->user_criador_id	= $request->user_criador_id;
-		return response()->json( ['result' => $novaSugestao] );
 		$novaSugestao->save();
 		
 		// Sugestoes::create($sugestao);
+		return response()->json( ['result' => $novaSugestao] );
 	}
 
 
