@@ -63,17 +63,23 @@ class ApiController extends Controller {
 	}
 
 
-	public function testeGenero(Request $request) {
-		$novoGenero = $request->all();
-		Generos::create($novoGenero);
-	}
-
-
 	public function postSugestoesUser(Request $request) {
 		$sugestoes = DB::table('sugestoes')->where('cidade_id', '=', $request->id_cidade)->get();
 		return response()->json( ['qtd' => count($sugestoes), 'result' => $sugestoes ] );
 	}
 
+
+	public function postNovaSugestao(Request $request) {
+		$sugestao = $request->all();
+		Sugestoes::create($sugestao);
+		return response()->json( ['result' => 'sucesso'] );
+	}
+
+
+	public function testeGenero(Request $request) {
+		$novoGenero = $request->all();
+		Generos::create($novoGenero);
+	}
 
 
 }
