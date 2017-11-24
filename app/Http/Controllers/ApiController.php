@@ -71,17 +71,20 @@ class ApiController extends Controller {
 
 	public function postNovaSugestao(Request $request) {
 		$novaSugestao = new Sugestoes();
-		$novaSugestao->descricao 	= $request->descricao; 
-		// $novaSugestao->status 		= $sugestao->status;
-		// $novaSugestao->endereco		= $sugestao->endereco;
-		// $novaSugestao->numero		= $sugestao->numero;
-		// $novaSugestao->save();
+		$novaSugestao->descricao 		= $request->descricao; 
+		$novaSugestao->status 			= $sugestao->status;
+		$novaSugestao->endereco			= $sugestao->endereco;
+		$novaSugestao->numero			= $sugestao->numero;
+		$novaSugestao->numero			= $sugestao->numero;
+		$novaSugestao->base64			= $sugestao->base64;
+		$novaSugestao->genero_id		= $sugestao->genero_id;
+		$novaSugestao->classificacao_id	= $sugestao->classificacao_id;
+		$novaSugestao->cidade_id		= $sugestao->cidade_id;
+		$novaSugestao->user_criador_id	= $sugestao->user_criador_id;
+		return response()->json( ['result' => $novaSugestao] );
+		$novaSugestao->save();
 		
-
-
-
 		// Sugestoes::create($sugestao);
-		return response()->json( ['result' => $request->all()] );
 	}
 
 
