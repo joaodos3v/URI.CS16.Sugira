@@ -17,6 +17,9 @@ class CreateSugestoesTable extends Migration
             $table->increments('id');
             $table->string('descricao', 100);
             $table->string('status', 100);
+            $table->string('endereco', 100);
+            $table->integer('numero');
+            $table->text('base64');
             $table->integer('genero_id')->unsigned();
             $table->foreign('genero_id')->references('id')->on('generos');
             $table->integer('classificacao_id')->unsigned();
