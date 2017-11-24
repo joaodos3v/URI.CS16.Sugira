@@ -78,7 +78,7 @@ class ApiController extends Controller {
 		// $novaSugestao->base64			= $sugestao->base64;
 		// $novaSugestao->genero_id		= $sugestao->genero_id;
 		// $novaSugestao->classificacao_id	= $sugestao->classificacao_id;
-		$novaSugestao->cidade_id		= $sugestao->cidade_id;
+		// $novaSugestao->cidade_id		= $sugestao->cidade_id;
 		// $novaSugestao->user_criador_id	= $sugestao->user_criador_id;
 		return response()->json( ['result' => $novaSugestao] );
 		$novaSugestao->save();
