@@ -71,6 +71,17 @@ class ApiController extends Controller {
 
 	public function postNovaSugestao(Request $request) {
 		$sugestao = $request->all();
+
+		$novaSugestao = new Sugestoes();
+		$novaSugestao->descricao 	= $sugestao->descricao; 
+		$novaSugestao->status 		= $sugestao->status;
+		$novaSugestao->endereco		= $sugestao->endereco;
+		$novaSugestao->numero		= $sugestao->numero;
+		$novaSugestao->save();
+		
+
+
+
 		// Sugestoes::create($sugestao);
 		return response()->json( ['result' => $sugestao] );
 	}
