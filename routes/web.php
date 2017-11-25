@@ -88,6 +88,17 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 	/*
+	* Rotas para as Sugestões
+	*/
+	Route::group(['prefix' => 'dashboard'], function() {
+		Route::get('', 						['as' => 'dashboard', 				'uses' => 'DashboardController@index']);
+		Route::post('edit',	 				['as' => 'dashboard.edit',			'uses' => 'DashboardController@edit']);
+		Route::put('{id}/update',			['as' => 'dashboard.update',		'uses' => 'DashboardController@update']);
+	});
+
+
+
+	/*
 	* Rotas para os AJAX
 	*/
 	Route::get('generos/exclude/{id}',  	'GenerosController@exclude');
