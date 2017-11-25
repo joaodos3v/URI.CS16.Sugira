@@ -62,6 +62,7 @@ class ApiController extends Controller {
 		$newUser->senha		= $request->senha;
 		$newUser->cidade_id	= $request->cidade_id;
 		$newUser->save();
+		return response()->json( ['result' => 'sucesso'] );
 	}
 
 
