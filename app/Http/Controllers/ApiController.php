@@ -70,6 +70,9 @@ class ApiController extends Controller {
 
 	public function postSugestoesUser(Request $request) {
 		// $sugestoes = DB::table('sugestoes')->where('cidade_id', '=', $request->id_cidade)->get();
+		$g = Generos::all();
+		return response()->json( $g );
+		
 		$sugestoes = Sugestoes::all();
 		if($sugestoes != null) {
 			return response()->json( ['teste' => $sugestoes ] );
