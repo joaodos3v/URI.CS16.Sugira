@@ -70,7 +70,7 @@ class ApiController extends Controller {
 
 	public function postSugestoesUser(Request $request) {
 		// $sugestoes = DB::table('sugestoes')->where('cidade_id', '=', $request->id_cidade)->get();
-		$sugestoes = Sugestoes::where('cidade_id', '=', $request->id_cidade)->get();
+		$sugestoes = Sugestoes::all();
 		if($sugestoes != null) {
 			return response()->json( ['teste' => $sugestoes ] );
 		} else {
