@@ -16,7 +16,7 @@ class DashboardController extends Controller {
 	public function index() {
 		$user 		= Auth::user();
 		$prefeitura = Prefeituras::find($user->prefeitura_id);
-		$cidade 	= Cidades::find($prefeitura->id);
+		$cidade 	= Cidades::find($prefeitura->cidade_id);
 		
 		$sugestoes 		= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->get();
 		foreach ($sugestoes as $key => $value) {
