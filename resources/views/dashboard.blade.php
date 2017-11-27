@@ -98,6 +98,7 @@
                             <th>Descrição</th>
                             <th>Status</th>
                             <th>Endereço</th>
+                            <th>Gênero</th>
                             <th>Classificação</th>
                             <th></th>
                         </thead>
@@ -119,6 +120,7 @@
                                     </td>
                                     <td> {{ $sug->endereco }}, {{ $sug->numero }} </td>
                                     <td> {{ $sug->classificacao }} </td>
+                                    <td> {{ $sug->genero }} </td>
                                     <td>
                                         {!! Form::open(['route' => 'dashboard.edit', 'method' => 'post' ]) !!}
                                             <input type="hidden" name="id" value="{{$sug->id}}">

@@ -9,6 +9,7 @@ use App\Sugestoes;
 use App\Prefeituras;
 use App\Cidades;
 use App\Classificacao;
+use App\Generos;
 
 class DashboardController extends Controller {
     
@@ -20,7 +21,9 @@ class DashboardController extends Controller {
 		$sugestoes 		= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->get();
 		foreach ($sugestoes as $key => $value) {
 			$classificacao 					= Classificacao::find($value->classificacao_id);
+			$genero 						= Generos::find($value->genero_id);
 			$sugestoes[$key]->classificacao = $classificacao->descricao;
+			$sugestoes[$key]->genero 		= $genero->descricao;
 		}
 
 		$abertas 		= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Aberta')->get();
