@@ -40,18 +40,20 @@ class ApiController extends Controller {
     ------------------------
     */
 	public function postLogin(Request $request) {
-		$logado = false;
-		$id = 0;
+		$logado 	= false;
+		$id 		= 0;
+		$idCidade 	= 0;
 		$user_app = DB::table('users__apps')->where('email', '=', $request->email)
 											->where('senha', '=', $request->senha)
 											->get();
 
 		if(count($user_app) > 0) {
-			$logado = true;
-			$id 	= $user_app[0]->id;
+			$logado 	= true;
+			$id 		= $user_app[0]->id;
+			$idCidade 	= $user_app[0]->prefeitura_id;
 		}
 		
-		return response()->json( ['logado' => $logado, 'id' => $id ] );
+		return response()->json( ['logado' => $logado, 'id' => $id, 'cidade_id' => $idCidade ] );
 	}
 
 
@@ -75,7 +77,7 @@ class ApiController extends Controller {
 			$sugestoes[$key]->classificacao = $classificacao->descricao;
 			$sugestoes[$key]->genero 		= $genero->descricao;
 		}
-		
+
 		return response()->json( ['qtd' => count($sugestoes), 'result' => $sugestoes ] );
 	}
 
