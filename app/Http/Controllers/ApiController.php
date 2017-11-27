@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Generos;
 use App\Cidades;
 use App\Users_App;
-use App\Sugestoes;
+use App\Sugestao;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -70,10 +70,10 @@ class ApiController extends Controller {
 
 	public function postSugestoesUser(Request $request) {
 		// $sugestoes = DB::table('sugestoes')->where('cidade_id', '=', $request->id_cidade)->get();
-		$g = Sugestoes::all();
+		$g = Sugestao::all();
 		return response()->json( $g );
-		
-		$sugestoes = Sugestoes::all();
+
+		$sugestoes = Sugestao::all();
 		if($sugestoes != null) {
 			return response()->json( ['teste' => $sugestoes ] );
 		} else {
@@ -93,7 +93,7 @@ class ApiController extends Controller {
 
 
 	public function postNovaSugestao(Request $request) {
-		$novaSugestao = new Sugestoes();
+		$novaSugestao = new Sugestao();
 		$novaSugestao->descricao 		= $request->descricao; 
 		$novaSugestao->status 			= $request->status;
 		$novaSugestao->endereco			= $request->endereco;
