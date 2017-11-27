@@ -19,7 +19,7 @@ class CreateSugestoesTable extends Migration
             $table->string('status', 100);
             $table->string('endereco', 100);
             $table->integer('numero');
-            $table->text('base64');
+            $table->binary('base64'); // Não foi mudado o nome da coluna porque já existem vinculações demais ao nome
             $table->integer('genero_id')->unsigned();
             $table->foreign('genero_id')->references('id')->on('generos');
             $table->integer('classificacao_id')->unsigned();
