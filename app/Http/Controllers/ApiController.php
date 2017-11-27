@@ -68,6 +68,14 @@ class ApiController extends Controller {
 
 	public function postSugestoesUser(Request $request) {
 		$sugestoes = DB::table('sugestoes')->where('cidade_id', '=', $request->id_cidade)->get();
+
+		foreach ($sugestoes as $key => $value) {
+			$classificacao 					= Classificacao::find($value->classificacao_id);
+			$genero 						= Generos::find($value->genero_id);
+			$sugestoes[$key]->classificacao = $classificacao->descricao;
+			$sugestoes[$key]->genero 		= $genero->descricao;
+		}
+		
 		return response()->json( ['qtd' => count($sugestoes), 'result' => $sugestoes ] );
 	}
 
