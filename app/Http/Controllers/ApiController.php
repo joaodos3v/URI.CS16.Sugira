@@ -50,7 +50,7 @@ class ApiController extends Controller {
 		if(count($user_app) > 0) {
 			$logado 	= true;
 			$id 		= $user_app[0]->id;
-			$idCidade 	= $user_app[0]->prefeitura_id;
+			$idCidade 	= $user_app[0]->cidade_id;
 		}
 		
 		return response()->json( ['logado' => $logado, 'id' => $id, 'cidade_id' => $idCidade ] );
