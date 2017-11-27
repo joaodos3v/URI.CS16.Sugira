@@ -72,7 +72,7 @@ class ApiController extends Controller {
 		// $sugestoes = DB::table('sugestoes')->where('cidade_id', '=', $request->id_cidade)->get();
 		$sugestoes = Sugestoes::where('cidade_id', '=', $request->id_cidade);
 		if($sugestoes != null) {
-			return response()->json( 'teste' => $request->id_cidade );
+			return response()->json( ['teste' => $request->id_cidade ] );
 		} else {
 			return response()->json( ['qtd' => count($sugestoes), 'result' => 'lelele' ] );
 		}
