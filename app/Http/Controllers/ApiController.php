@@ -7,6 +7,7 @@ use App\Generos;
 use App\Cidades;
 use App\Users_App;
 use App\Sugestao;
+use App\Classificacao;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -74,11 +75,10 @@ class ApiController extends Controller {
 
 
 		foreach ($sugestoes as $key => $value) {
-			// $classificacao 					= DB::table('classificacoes')->where('id', '=', $value->classificacao_id)->get();
+			$classificacao 					= Classificacao::find($value->classificacao_id);
 			$genero 						= Generos::find($value->genero_id);
-			// $sugestoes[$key]->classificacao = $classificacao->descricao;
-			// $sugestoes[$key]->genero 		= $genero->descricao;
-			$sugestoes[$key]->genero 		= $genero;
+			$sugestoes[$key]->classificacao = $classificacao->descricao;
+			$sugestoes[$key]->genero 		= $genero->descricao;
 		}
 
 		return response()->json( ['qtd' => count($sugestoes), 'result' => $sugestoes ] );
