@@ -74,11 +74,11 @@ class ApiController extends Controller {
 
 
 		foreach ($sugestoes as $key => $value) {
-			// $classificacao 					= Classificacao::find($value->classificacao_id);
+			$classificacao 					= Classificacao::find($value->classificacao_id);
 			// $genero 						= Generos::find($value->genero_id);
 			// $sugestoes[$key]->classificacao = $classificacao->descricao;
 			// $sugestoes[$key]->genero 		= $genero->descricao;
-			$sugestoes[$key]->genero 		= $value->classificacao_id;
+			$sugestoes[$key]->genero 		= $classificacao->descricao;
 		}
 
 		return response()->json( ['qtd' => count($sugestoes), 'result' => $sugestoes ] );
