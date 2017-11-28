@@ -78,7 +78,7 @@ class ApiController extends Controller {
 			// $genero 						= Generos::find($value->genero_id);
 			// $sugestoes[$key]->classificacao = $classificacao->descricao;
 			// $sugestoes[$key]->genero 		= $genero->descricao;
-			$sugestoes[$key]->genero 		= $value['classificacao_id'];
+			$sugestoes[$key]->genero 		= $value->classificacao_id;
 		}
 
 		return response()->json( ['qtd' => count($sugestoes), 'result' => $sugestoes ] );
