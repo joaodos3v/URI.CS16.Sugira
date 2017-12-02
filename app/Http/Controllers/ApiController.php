@@ -101,7 +101,7 @@ class ApiController extends Controller {
 
 
 	public function editaSugestao(Request $request) {
-		$sugestao = Sugestoes::find($request->id_sugestao);
+		$sugestao = Sugestao::find($request->id_sugestao);
 		$sugestao->status = $request->novo_status;
 		$sugestao->save();
 
