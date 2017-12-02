@@ -14,6 +14,8 @@ use App\Generos;
 class DashboardController extends Controller {
     
 	public function index() {
+		dd(Auth::user());
+		/*
 		$user 		= Auth::user();
 		$prefeitura = Prefeituras::find($user->prefeitura_id);
 		$cidade 	= Cidades::find($prefeitura->cidade_id);
@@ -30,6 +32,7 @@ class DashboardController extends Controller {
 		$em_andamento 	= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Em Andamento')->get();
 		$concluidas 	= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Concluida')->get();
 		return view('dashboard', compact('sugestoes', 'cidade', 'abertas', 'em_andamento', 'concluidas'));
+		*/
 	}
 
 	public function edit(Request $request) {
