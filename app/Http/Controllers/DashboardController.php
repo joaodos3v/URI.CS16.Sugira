@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Sugestoes;
+use App\Sugestao;
 use App\Prefeituras;
 use App\Cidades;
 use App\Classificacao;
@@ -34,7 +34,7 @@ class DashboardController extends Controller {
 	}
 
 	public function edit(Request $request) {
-		$sugestao 						= Sugestoes::find($request->id);
+		$sugestao 						= Sugestao::find($request->id);
 		$classificacao 					= Classificacao::find($sugestao->classificacao_id);
 		$sugestao->classificacao 		= $classificacao->descricao;
 
@@ -43,7 +43,7 @@ class DashboardController extends Controller {
 	}
 
 	public function update(Request $request, $id) {
-		$sugestao = Sugestoes::find($request->id);
+		$sugestao = Sugestao::find($request->id);
 		$sugestao->status = $request->status;
 		$sugestao->save();
 
