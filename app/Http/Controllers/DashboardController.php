@@ -19,8 +19,7 @@ class DashboardController extends Controller {
 		$cidade 	= Cidades::find($prefeitura->cidade_id);
 		
 		
-		/*
-		$sugestoes 		= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->get();
+		$sugestoes 		= DB::table('sugestaos')->where('cidade_id', '=', $cidade->id)->get();
 		foreach ($sugestoes as $key => $value) {
 			$classificacao 					= Classificacao::find($value->classificacao_id);
 			$genero 						= Generos::find($value->genero_id);
@@ -28,12 +27,10 @@ class DashboardController extends Controller {
 			$sugestoes[$key]->genero 		= $genero->descricao;
 		}
 
+		$abertas 		= DB::table('sugestaos')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Aberta')->get();
+		$em_andamento 	= DB::table('sugestaos')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Em Andamento')->get();
+		$concluidas 	= DB::table('sugestaos')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Concluida')->get();
 		return view('dashboard', compact('sugestoes', 'cidade', 'abertas', 'em_andamento', 'concluidas'));
-		$abertas 		= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Aberta')->get();
-		$em_andamento 	= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Em Andamento')->get();
-		$concluidas 	= DB::table('sugestoes')->where('cidade_id', '=', $cidade->id)->where('status', '=', 'Concluida')->get();
-		*/
-		return view('dashboard');
 	}
 
 	public function edit(Request $request) {
