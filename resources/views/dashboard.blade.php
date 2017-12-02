@@ -40,7 +40,7 @@
                 </div>
                 <div class="card-content">
                     <p class="category">Concluídas</p>
-                    {{-- <h3 class="title">{{ count($concluidas) }}</h3> --}}
+                    <h3 class="title">{{ count($concluidas) }}</h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="card-content">
                     <p class="category">Em Andamento</p>
-                    {{-- <h3 class="title">{{ count($em_andamento) }} --}}
+                    <h3 class="title">{{ count($em_andamento) }}
                     </h3>
                 </div>
                 <div class="card-footer">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="card-content">
                     <p class="category">Abertas</p>
-                    {{-- <h3 class="title">{{ count($abertas) }}</h3> --}}
+                    <h3 class="title">{{ count($abertas) }}</h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -89,7 +89,7 @@
             <div class="card card-plain">
                 <div class="card-header" data-background-color="green">
                     <h4 class="title">Sugestões</h4>
-                    {{-- <p class="category">Estes são os problemas dos habitantes da cidade <b>{{$cidade->nome}}</b></p> --}}
+                    <p class="category">Estes são os problemas dos habitantes da cidade <b>{{$cidade->nome}}</b></p>
                 </div>
                 <div class="card-content table-responsive">
                     <table class="table table-hover table-responsive">
@@ -102,7 +102,7 @@
                             <th>Classificação</th>
                             <th></th>
                         </thead>
-                       {{--  <tbody>
+                        <tbody>
                             @foreach($sugestoes as $sug)
                                 <tr>
                                     <td> {{ $sug->id }} </td>
@@ -129,7 +129,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
                 </div>
             </div>
